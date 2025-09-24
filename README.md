@@ -85,4 +85,3 @@ Contributions are welcome! Whether it's bug reports, feature requests, or code c
 Please read our **Contributing Guidelines** to get started. Also, be sure to review our **Code of Conduct**.
 
 ---
-```
