@@ -2,6 +2,11 @@
 
 A small, dependency-free, single-header C library for parsing configuration files. It provides a robust parser for **TOML** and a simple, event-driven parser for **INI** files.
 
+[![License](https://img.shields.io/github/license/Nouridin/cconfig)](LICENSE)
+![Stars](https://img.shields.io/github/stars/Nouridin/cconfig?style=social)
+
+---
+
 ## Features
 
 *   **TOML & INI Support**: Parses the full TOML v1.0.0 spec and the simpler INI format.
