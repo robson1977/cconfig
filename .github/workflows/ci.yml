@@ -19,14 +19,14 @@ jobs:
     # On Windows, install MSYS2 + mingw gcc so `gcc` is available
     - name: Setup MSYS2 (Windows)
       if: runner.os == 'Windows'
-      uses: msys2/setup-msys2@v3
+      uses: msys2/setup-msys2@v2 # v3 has a bug with pathing, v2 is recommended
       with:
         update: true
         install: >
           mingw-w64-x86_64-gcc
 
     - name: Compile tests
-      shell: bash
+      shell: msys2 {0} # Use msys2 shell on Windows for consistency
       run: |
         if [ "$RUNNER_OS" = "Windows" ]; then
           # MSYS2 puts mingw64 gcc on PATH in GitHub runners after setup
@@ -36,7 +36,7 @@ jobs:
         fi
 
     - name: Run tests
-      shell: bash
+      shell: msys2 {0}
       run: |
         if [ "$RUNNER_OS" = "Windows" ]; then
           ./tests/test_runner.exe
