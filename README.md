@@ -29,6 +29,41 @@ Then, in **one** C or C++ source file, define `CCONFIG_IMPLEMENTATION` before th
 
 All other source files can include `cconfig.h` normally without the define.
 
+## Package Manager Integration
+
+You can easily add `cconfig` to your project using common C++ package managers.
+
+### CMake (FetchContent)
+
+If you are using CMake, you can use `FetchContent` to download and use `cconfig` directly from this repository.
+
+```cmake
+# In your CMakeLists.txt
+
+include(FetchContent)
+
+FetchContent_Declare(
+  cconfig
+  GIT_REPOSITORY https://github.com/Nouridin/cconfig.git
+  GIT_TAG        main # Or a specific version tag like v1.0.0
+)
+
+FetchContent_MakeAvailable(cconfig)
+
+# Now you can use the header in your targets
+target_include_directories(your_target_name PRIVATE ${cconfig_SOURCE_DIR})
+```
+
+### vcpkg
+
+Once `cconfig` is available in the official vcpkg registry, you can install it with:
+
+```bash
+vcpkg install cconfig
+```
+
+And use it in your CMake project with `find_package(cconfig CONFIG REQUIRED)`.
+
 ## Quick Start: Parsing TOML
 
 Here is a minimal example of parsing a TOML string and retrieving values.
