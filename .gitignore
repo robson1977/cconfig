@@ -1,0 +1,21 @@
+# Build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+
+# User-specific files
+.vscode/
+
+# Common OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Common editor backup files
+*~
+*.swp
+*.swo

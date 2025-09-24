@@ -1,0 +1,35 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Compile tests
+      shell: bash
+      run: |
+        if [ "$RUNNER_OS" == "Windows" ]; then
+          gcc -o tests/test_runner.exe tests/test_runner.c -I. -std=c99 -Wall -Wextra -pedantic -mconsole
+        else
+          gcc -o tests/test_runner tests/test_runner.c -I. -std=c99 -Wall -Wextra -pedantic
+        fi
+
+    - name: Run tests
+      shell: bash
+      run: |
+        if [ "$RUNNER_OS" == "Windows" ]; then
+          ./tests/test_runner.exe
+        else
+          ./tests/test_runner
+        fi
