@@ -1,0 +1,45 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v4
+
+    # On Windows, install MSYS2 + mingw gcc so `gcc` is available
+    - name: Setup MSYS2 (Windows)
+      if: runner.os == 'Windows'
+      uses: msys2/setup-msys2@v3
+      with:
+        update: true
+        install: >
+          mingw-w64-x86_64-gcc
+
+    - name: Compile tests
+      shell: bash
+      run: |
+        if [ "$RUNNER_OS" = "Windows" ]; then
+          # MSYS2 puts mingw64 gcc on PATH in GitHub runners after setup
+          gcc -o tests/test_runner.exe tests/test_runner.c -I. -std=c99 -Wall -Wextra -pedantic -mconsole
+        else
+          gcc -o tests/test_runner tests/test_runner.c -I. -std=c99 -Wall -Wextra -pedantic
+        fi
+
+    - name: Run tests
+      shell: bash
+      run: |
+        if [ "$RUNNER_OS" = "Windows" ]; then
+          ./tests/test_runner.exe
+        else
+          ./tests/test_runner
+        fi
