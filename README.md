@@ -56,7 +56,7 @@ target_include_directories(your_target_name PRIVATE ${cconfig_SOURCE_DIR})
 
 ### vcpkg
 
-Once `cconfig` is available in the official vcpkg registry, you can install it with:
+`cconfig` is officially in VCPKG you can install it:
 
 ```bash
 vcpkg install cconfig
